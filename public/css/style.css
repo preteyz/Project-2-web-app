@@ -19,10 +19,12 @@ a.webLogo {
 
 .searchBtn {
     border: none;
+    background-color: white;
 }
 
 .dropBtn {
     border: none;
+    background-color: white;
 }
 
 .dropdown {
