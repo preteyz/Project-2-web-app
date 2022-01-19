@@ -62,6 +62,7 @@ app.get((req, res) => {
 //Internal Routes
 app.use("/users", routes.users);
 app.use("/posts", routes.posts);
+app.use("/", routes.comments);
 app.use("/", routes.oauth);
 
 /* ====  Server Listener  ==== */
