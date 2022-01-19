@@ -43,7 +43,8 @@ app.get((req, res) => {
 });
 
 //Internal Routes
-
+app.use("/users", routes.users);
+app.use("/posts", routes.posts);
 
 /* ====  Server Listener  ==== */
 app.listen(PORT, () => {
