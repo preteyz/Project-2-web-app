@@ -4,20 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+		.login-form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		a.oauth{
+			text-decoration: none;
+			text-align: center;
+			color: black;
+			background-color: #EAE7DC;
+			padding: 5px;
+			width: 200px;
+		}
+		input {
+			display: block;
+			margin: 5px auto;
+			padding: 5px;
+			width: 200px;
+		}
+		input:nth-of-type(3) {
+			border: none;
+			background-color: #EAE7DC;
+		}
+		a.guestLogin {
+			color: black
+		}
+
+	</style>
     <title>Project two</title>
 </head>
 <body>
-    <h1>Foodgram</h1>
-    <p>Login Form</p>
-    <ul>
-        <li><a href="/auth/google">Login with Google (to Google Login Page ( /auth/google ))</a></li>
-        <li><a href="/posts">Login as a guest (to Main Page ( /posts ))</a></li>
-    </ul>
-    <p>Temporary navigator</p>
-    <ul>
-        <li><a href="/users">All Users ( /users )</a></li>
-        <li><a href="/posts">All Posts ( /posts )</a></li>
-    </ul>
+    <div class= "login-form">
+        <h1>Foodgram</h1>
+        <a class= "oauth" href="/auth/google">Login with Google</a>
+        <p>or</p>
+        <input type="text" name="username" placeholder="username">
+	    <input type="text" name="password" placeholder="password">
+	    <input type="submit" value="login">
+        <p>or</p>
+        <a class="guestLogin" href="/posts">Login as a guest</a>
+    </div>
+    <p>Temporary navigator</p>   
+        <ul>
+            <li><a href="/users">All Users ( /users )</a></li>
+        </ul>
+    
+    
 
 </body>
 </html>

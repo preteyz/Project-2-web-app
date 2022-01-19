@@ -15,16 +15,25 @@
             <input type="text" placeholder="search">
             <button class="searchBtn"><i class="fas fa-search"></i></button>
         </div>
-        <div class="profile">            
+        <div class="profile">
+            <% if (loginUser) { %>   
+
             <div class="dropdown">
-                <button class="dropBtn"><i class="fas fa-user-circle" style="font-size:20px;margin:5px;"></i>Hi, Username(Guest)</button>
+                <button class="dropBtn">
+                    <i class="fas fa-user-circle" style="font-size:20px;margin:3px;"></i>
+                    <%= loginUser.name %>
+                </button>
                 <div class="dropdown-content">
-                    <a href="#">My Page</a>
+                    <a href="/users/<%= loginUser._id %>">My Page</a>
                     <a href="#">Setting</a>
-                    <a href="#">LogOut</a>
+                    <a href="/logout">LogOut</a>
                 </div>
             </div>
-            <a href="#">Add a Post</a>
-            <a href="#">LogOut(LogIn)</a>
+            <a href="/posts/new">Add a Post</a>
+            <% } else { %>
+                <i class="fas fa-user-circle" style="font-size:20px;margin:3px;"></i>
+                Hi, Guest!
+                <a href="/auth/google">Login</a>
+                <% } %> 
         </div>
     </header>

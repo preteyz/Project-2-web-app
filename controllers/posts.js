@@ -6,7 +6,7 @@ const index = (req, res) => {
     db.Post.find({}, (err, foundPosts) => {
         if (err) return res.send(err)
         return res.render("posts/index", {
-            posts : foundPosts
+            posts : foundPosts, loginUser : req.user
         });
     });
 };
