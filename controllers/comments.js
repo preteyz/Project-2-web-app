@@ -1,4 +1,3 @@
-const { disabled } = require("express/lib/application");
 const db = require("../models");
 
 const index = (req, res) => {
