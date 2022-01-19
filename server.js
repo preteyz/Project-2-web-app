@@ -3,6 +3,8 @@ require("dotenv").config();
 /* ==== External Modules ==== */
 const express = require("express");
 const methodOverride = require("method-override");
+const session = require("express-session");
+const passport = require("passport");
 
 /* ==== Internal Modules ==== */
 const routes = require("./routes");
@@ -13,6 +15,8 @@ const app = express();
 /* ====  Configuration  ==== */
 const PORT = 4000;
 
+// passport
+require("./config/passport");
 // connect to the MongoDB with mongoose
 require("./config/database");
 
@@ -31,6 +35,17 @@ app.use((req, res, next) => {
 	next();
 });
 
+app.use(
+	session({
+		secret: process.env.COOKIE_SECRET,
+		resave: false,
+		saveUninitialized: true,
+	})
+	);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 /* ====  Routes & Controllers  ==== */
 //Home Route
 app.get("/", (req, res) => {
@@ -45,6 +60,7 @@ app.get((req, res) => {
 //Internal Routes
 app.use("/users", routes.users);
 app.use("/posts", routes.posts);
+app.use("/", routes.oauth);
 
 /* ====  Server Listener  ==== */
 app.listen(PORT, () => {
