@@ -13,7 +13,7 @@ const show = (req, res) => {
     db.User.find(req.params.id, (err, foundUser) => {
         if (err) return res.send(err)
         return res.render("users/show", {
-            user : foundUser 
+            user : foundUser , loginUser : req.user
         });
     });
 };
