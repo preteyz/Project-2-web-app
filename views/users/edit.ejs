@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Edit page
-    <h1>Edit Profile <%= user.name %></h1>
-    <ul>
-        <li><%=user.email%></li>
-    </ul>
-		<form action="/users/<%= user._id %>?_method=PUT" method="POST">
+<%- include("../partials/header") %>
+<%= user.name %>
+<h3>Edit Profile </h3>
+<ul>
+    <li>name: <%= user.name %></li>
+    <li>email: <%=user.email%></li>
+    <li>
+        <form action="/users/<%= user._id %>?_method=PUT" method="POST">
             <label for="avaratUrl">Picture: </label>
 			<input type="text" name="avatarUrl" value="<%= user.avatarUrl %>" />
 			<input type="submit" value="Update" />
 		</form>
+    </li>
+</ul>
+    <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete Account" />
+    </form>
 </body>
 </html>

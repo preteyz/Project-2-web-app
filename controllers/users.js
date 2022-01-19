@@ -4,7 +4,8 @@ const index = (req, res) => {
     db.User.find({}, (err, foundUsers) => {
         if (err) return res.send(err)
         return res.render("users/index", { 
-            users : foundUsers
+            users : foundUsers, 
+            loginUser : req.user
             });
     });
 };
@@ -16,7 +17,8 @@ const show = (req, res) => {
         .exec((err, foundUser) => {
             if (err) return res.send(err)
             return res.render("users/show", {
-                user : foundUser , loginUser : req.user
+                user : foundUser, 
+                loginUser : req.user 
             });
         });
 };
@@ -36,7 +38,8 @@ const edit = (req, res) => {
     db.User.findById(req.params.id, (err, foundUser) => {
         if (err) return res.send(err);
         return res.render("users/edit", {
-            user : foundUser
+            user : foundUser,
+            loginUser : req.user
         })
     }) 
 }

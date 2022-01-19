@@ -1,14 +1,19 @@
 <%- include("../partials/header") %>
 <body>
-    <h3>All Posts</h3>
+<h3>All Posts</h3>
+<ul>
     <% if (!posts.length) { %>
-        <p>No posts yet</p>
+    <p>No posts yet</p>
     <% } else { %>
-    <ul>
-        <% posts.forEach(post => { %>
-            <li><a href="/posts/<%=post._id%>"><%= post.caption %></a></li>
-    </ul>
-        <% }); %>
+    <% posts.forEach(post => { %>
+    <li><a href="/posts/<%=post._id%>"><%= post.caption %></a></li>
+    <% }); %>
     <% } %>
+</ul>
+<p>Temporary navigator</p>
+<ul>
+    <li><a href="/users">All Users ( /users )</a></li>
+</ul>
+
 </body>
 </html>

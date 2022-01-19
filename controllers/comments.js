@@ -3,8 +3,9 @@ const db = require("../models");
 const index = (req, res) => {
     db.Comment.find({}, (err, foundComments) => {
         if (err) return res.send(err);
-        return res.render("post/show", { 
-            comments : foundComments 
+        return res.render("posts/show", { 
+            comments : foundComments,
+            loginUser : req.user 
         });
     })
 }
