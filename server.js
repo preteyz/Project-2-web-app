@@ -5,6 +5,7 @@ const express = require("express");
 const methodOverride = require("method-override");
 const session = require("express-session");
 const passport = require("passport");
+const morgan = require('morgan');
 
 /* ==== Internal Modules ==== */
 const routes = require("./routes");
@@ -23,6 +24,7 @@ require("./config/database");
 app.set("view engine", "ejs");
 
 /* ====  Middleware  ==== */
+app.use(morgan('dev'));
 // body data middleware
 app.use(express.urlencoded({ extended: true }));
 // method override middleware
