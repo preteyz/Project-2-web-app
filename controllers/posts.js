@@ -43,7 +43,7 @@ const create = (req, res) => {
 const destroy = (req, res) => {
     console.log(req.params.id);
     Post.findOne({"posts._id":req.params.id}, function(err,user){
-        const postDoc = post.id(req.params.id);
+        const postDoc = user.post.id(req.params.id);
         postDoc.remove();
         user.save(function(err){
         res.redirect("/posts");
