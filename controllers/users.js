@@ -21,7 +21,7 @@ const show = (req, res) => {
         });
 };
 
-const create
+
 module.exports = {
     index,
     show
