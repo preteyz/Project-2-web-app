@@ -1,12 +1,22 @@
 <%- include("../partials/header") %>
 <body>
     <h3>All Posts</h3>
+    <p>Temporary navigator</p>
+    <ul>
+        <li><a href="posts/new">new ( /new)</a></li>
+    </ul>
+
     <% if (!posts.length) { %>
         <p>No posts yet</p>
     <% } else { %>
     <ul>
         <% posts.forEach(post => { %>
             <li><a href="/posts/<%=post._id%>"><%= post.caption %></a></li>
+            <li>
+                <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete" />
+                </form>
+            </li>
     </ul>
         <% }); %>
     <% } %>
