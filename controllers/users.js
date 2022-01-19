@@ -10,14 +10,18 @@ const index = (req, res) => {
 };
 
 const show = (req, res) => {
-    db.User.find(req.params.id, (err, foundUser) => {
-        if (err) return res.send(err)
-        return res.render("users/show", {
-            user : foundUser 
+    db.User.find(req.params.id)
+        .populate("posts")
+        .populate("comments")
+        .exec((err, foundUser) => {
+            if (err) return res.send(err)
+            return res.render("users/show", {
+                user : foundUser , loginUser : req.user
+            });
         });
-    });
 };
 
+const create
 module.exports = {
     index,
     show
