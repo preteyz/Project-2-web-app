@@ -33,7 +33,7 @@ const newTag = (req, res) => {
 const create = (req, res) => {
     db.Tag.create(req.body, (err, createdTag) => {
         if (err) res.send(err)
-        res.redirect(`/posts/new`)
+        res.redirect(`/tags`)
     })
 }
 
