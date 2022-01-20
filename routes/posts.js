@@ -1,8 +1,10 @@
 const router = require("express").Router();
 
-const postsCtrl = require("../controllers");
+const ctrl = require("../controllers");
 
-router.get("/", postsCtrl.posts.index);
-router.get("/:id", postsCtrl.posts.show);
+router.get("/", ctrl.posts.index);
+// router.get("/:id", ctrl.posts.show);
+router.delete("/:id", ctrl.posts.destroy);
+
 
 module.exports = router;
