@@ -62,6 +62,18 @@ const update = (req, res) => {
     )
 }
 
+const destroy = (req, res) => {
+    db.Tag.findByIdAndDelete(req.params.id, (err, deletedTag) => {
+        console.log(deletedTag);
+        if (err) return res.sed(err);
+        db.Post.deleteMany( {post : deletedTag._id}, (err, deletedPosts) => {
+            console.log(deletedPosts, "deleted posts")
+            if (err) return res.send(err);
+            res.redirect("/tags");
+        })
+    })
+}
+
 module.exports = {
     index,
     show,
@@ -69,4 +81,5 @@ module.exports = {
     create,
     update,
     edit,
+    destroy
 }
