@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Foodgram || New Post</title>
 </head>
 <body>
-    Add Post Page
+    <h1>Foodgram</h1>
+
+    <main>
+        <form id="new-form" action="/posts" method="POST">
+            <label>Picture:</label>
+            <input type="text" name="picture" placeholder="Picture url...">
+            <label>Caption:</label>
+            <input type="text" name="caption" placeholder="Add a caption!">
+            <label>Tag:</label>
+            <input type="text" name="cast">
+            <input type="submit" value="Save">
+            <input type="submit" value="Cancel">
+        </form>
+	</main>
 </body>
 </html>

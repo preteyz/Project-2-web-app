@@ -1,4 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
 <%- include("../partials/header") %>
-    Post Show page
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- <title>Show All Posts || </title> -->
+	</head>
+	<body>
+		<nav>
+			<h1>See all Posts: </h1>
+			<ul>
+				<li>
+					<a href="/posts">Posts</a>
+				</li>
+				<li>
+					<a href="/posts/new">Add a Post</a>
+				</li>
+			</ul>
+		</nav>
+		<main>
+			<section>
+				<h2>Post Info</h2>
+				<a href="/posts/<%=post._id %>/edit">Edit</a>
+				<ul>
+					<li>Content: <%= post.content %></li>
+				</ul>
+			</section>
+			<form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+				<input type="submit" value="Delete" />
+			</form>
+		</main>
+	</body>
 </html>

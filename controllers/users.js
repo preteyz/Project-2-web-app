@@ -23,6 +23,7 @@ const show = (req, res) => {
         });
 };
 
+
 const newUser = (req, res) => {
     res.render("users/new")
 } 
