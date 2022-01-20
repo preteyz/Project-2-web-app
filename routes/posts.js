@@ -3,7 +3,7 @@ const router = require("express").Router();
 const ctrl = require("../controllers");
 
 router.get("/", ctrl.posts.index);
-// router.get("/:id", ctrl.posts.show);
+router.get("/:id", ctrl.posts.show);
 router.delete("/:id", ctrl.posts.destroy);
 
 
