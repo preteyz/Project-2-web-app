@@ -64,7 +64,7 @@ app.use("/users", routes.users);
 app.use("/posts", routes.posts);
 app.use("/", routes.comments);
 app.use("/", routes.oauth);
-app.use("/tags", routes.tags);
+app.use("/", routes.tags);
 
 /* ====  Server Listener  ==== */
 app.listen(PORT, () => {
