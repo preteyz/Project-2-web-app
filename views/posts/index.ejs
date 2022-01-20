@@ -20,9 +20,11 @@
     <div class="flex-container">
         <nav class="tagNav">
             <ul style="list-style: none;">
-                <li><a href="#">#TagName1</a></li>
-                <li><a href="#">#TagName2</a></li>
-                <li><a href="#">#TagName3</a></li>
+                <% tags.forEach(tag => {%>
+                    <li>
+                        <a href="tags/<%=tag._id%>"><%=tag.name%></a>
+                    </li>
+                    <%})%>
             </ul>
         </nav>
         <main class="posts">
