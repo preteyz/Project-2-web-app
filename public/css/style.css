@@ -1,8 +1,10 @@
+/* Page Header Part */
 .topNav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
+    background-color: whitesmoke;
 }
 
 a.webLogo {
@@ -52,3 +54,46 @@ a.webLogo {
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: gray;}
+
+/* Page Main Part */
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.tagNav {
+    margin: 10px;
+    padding: 20px 10px;
+    width: 20%;
+    height: fit-content;
+    background-color: whitesmoke;
+    border-radius: 2px;
+    margin-top: 50px;
+}
+
+ul, li {
+    padding: 0;
+    margin: 10px;
+}
+
+main {
+    margin: 10px;
+}
+
+main.posts {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+}
+
+article {
+    margin: 5px;
+    height: 400px;
+    background-color: whitesmoke;
+    border-radius: 2px;
+}
+article:first-of-type {
+    grid-column: 1 / span 2;
+}
