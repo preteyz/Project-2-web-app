@@ -37,6 +37,7 @@ const create = (req, res) => {
     })
 }
 
+
 // Delete
 
 const destroy = (req, res) => {
@@ -58,6 +59,4 @@ module.exports = {
     destroy,
     newPost,
     create,
-    
-
 }
