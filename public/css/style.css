@@ -1,3 +1,14 @@
+/* CSS Custom Properties */
+body{
+    --bg-content: #8E8D8A;
+    --bg-generic: #EAE7DC;;
+
+}
+
+body{
+    background-color: var(--bg-generic);
+}
+
 /* Page Header Part */
 .topNav {
     display: flex;
