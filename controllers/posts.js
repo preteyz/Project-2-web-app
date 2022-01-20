@@ -23,6 +23,21 @@ const show = (req, res) => {
         })
 };
 
+// New post
+const newPost = (req, res) => {
+    res.render("posts/new")
+} 
+
+
+// Create
+const create = (req, res) => {
+    db.Post.create(req.body, (err, createdPost) => {
+        if (err) return res.send(err)
+        return res.redirect("/posts")
+    })
+}
+
+
 // Delete
 
 const destroy = (req, res) => {
@@ -40,7 +55,8 @@ const destroy = (req, res) => {
 
 module.exports = {
     index,
-    destroy,
     show,
-
+    destroy,
+    newPost,
+    create,
 }

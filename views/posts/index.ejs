@@ -6,6 +6,7 @@
         <p>No posts yet</p>
     <% } else { %>
     <ul>
+
         <% posts.forEach(post => { %>
             <li><a href="/posts/<%=post._id%>"><%= post.caption %></a></li>
             <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
@@ -39,6 +40,7 @@
 <p>Temporary navigator</p>
 <ul>
     <li><a href="/users">All Users ( /users )</a></li>
+    <li><a href="/posts/new">new post ( /new )</a></li>
 </ul>
 
 <%- include("../partials/footer") %>
