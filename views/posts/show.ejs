@@ -1,10 +1,12 @@
 <%- include("../partials/header") %>
-<a href="/posts/<%=post._id%>/edit">Profile</a>
 
-    <h3>My Post</h3>
     <ul>
 		<li>image: <%= post.image %></li>
         <li>caption: <%= post.caption %></li>
+		<li>tag: <%= post.tag.name %></li>
+		<li>author: <% post.user.name %></li>
+
+		<h4>Comments</h4>
 		<% post.comments.forEach(comment => { %>
 		<li>
 			<a href="/comments/<%=comment._id%>"><%= comment.content %></a>
