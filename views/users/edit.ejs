@@ -1,0 +1,19 @@
+<%- include("../partials/header") %>
+<%= user.name %>
+<h3>Edit Profile </h3>
+<ul>
+    <li>name: <%= user.name %></li>
+    <li>email: <%=user.email%></li>
+    <li>
+        <form action="/users/<%= user._id %>?_method=PUT" method="POST">
+            <label for="avaratUrl">Picture: </label>
+			<input type="text" name="avatarUrl" value="<%= user.avatarUrl %>" />
+			<input type="submit" value="Update" />
+		</form>
+    </li>
+</ul>
+    <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete Account" />
+    </form>
+</body>
+</html>

@@ -3,8 +3,9 @@ const db = require("../models");
 const index = (req, res) => {
     db.Comment.find({}, (err, foundComments) => {
         if (err) return res.send(err);
-        return res.render("post/show", { 
-            comments : foundComments 
+        return res.render("comments/index", { 
+            comments : foundComments,
+            loginUser : req.user 
         });
     })
 }
@@ -24,11 +25,12 @@ const show = (req, res) => {
         .populate("user")
         .exec((err, foundComment) => {
             if (err) res.send(err);
-            return res.render("posts/show", { 
+            return res.render("comments/show", { 
                 comment : foundComment 
             })
         })
 }
+
 
 const create = (req, res) => {
     db.Comment.create(req.body, (err, createdComment) => {
