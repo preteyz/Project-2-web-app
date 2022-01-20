@@ -1,5 +1,4 @@
 const db = require("../models");
-const { rawListeners } = require("../models/User");
 
 const index = (req, res) => {
     db.Tag.find({}, (err, foundTags) => {
@@ -15,20 +14,26 @@ const show = (req, res) => {
 		.populate("posts")
 		.exec((err, foundTag) => {
 			if (err) return res.send(err);
-			return res.render("hashtags/show", { 
-                tag: foundTag
-            });
+            db.Tag.find({}, (err, foundTags) => {
+                if (err) return res.send(err)
+                return res.render("hashtags/show", { 
+                    foundtag: foundTag,
+                    tags: foundTags,
+                    loginUser: req.user
+                });
+            })
+			
 		})
 };
 
 const newTag = (req, res) => {
-    res.render("tags/new")
+    res.render("hashtags/new")
 };
 
 const create = (req, res) => {
     db.Tag.create(req.body, (err, createdTag) => {
         if (err) res.send(err)
-        res.redirect(`/posts`)
+        res.redirect(`/posts/new`)
     })
 }
 
