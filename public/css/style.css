@@ -4,7 +4,10 @@ body{
     --bg-generic: #EAE7DC;
     --active-elem: #E98074;
     --passive-elem: #E85A4F;
+    --header-height: 60px;
+
     font-size: 20px;
+    margin-top: var(--header-height);
     font-family: "Lato", Arial, sans-serif;
     line-height: 1.8;
     font-weight: normal;
@@ -54,7 +57,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    height: 60px;
+    height: var(--header-height);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -214,6 +217,12 @@ input {
     text-align: center;
 }
 
+
+ul, li {
+    padding: 0;
+    margin: 10px;
+}
+
 .tagNav {
     margin: 10px;
     padding: 20px 10px;
@@ -222,11 +231,6 @@ input {
     background-color: whitesmoke;
     border-radius: 2px;
     margin-top: 50px;
-}
-
-ul, li {
-    padding: 0;
-    margin: 10px;
 }
 
 main {
