@@ -11,9 +11,19 @@ body{
     line-height: 1.8;
     font-weight: normal;
     color: white;
+    
+}
+
+.bg-login {
+    position:absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     background-image: url(/images/login-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 /* Generic CSS */
@@ -23,7 +33,94 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
+    height: 100%;
 
+}
+
+/* Nav bar Styling */
+
+/* Page Header Part */
+header {
+    background-color: var(--bg-content);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 25px 0 black;
+    
+}
+
+header img {
+    height: 80px;
+}
+
+header * {
+    display: inline;
+}
+
+header li a {
+    color: black;
+    text-decoration: none;
+}
+
+/* .topNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+} */
+
+.searchBar input:first-of-type{
+    width: 200px;
+    height: 20px;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+}
+
+.searchBtn {
+    border: none;
+    background-color: white;
+}
+
+.dropBtn {
+    border: none;
+    background-color: white;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: gray;}
+
+
+.webLogo {
+    text-decoration: none;
+    color: white;
 }
 
 /*Login index styling  */
@@ -82,7 +179,7 @@ input {
     border-radius: 25px;
     border: 2px solid var(--bg-generic);
     text-align: center;
-    padding: 2rem;
+    margin: 6rem;
 }
 
 a.oauth{
@@ -101,99 +198,9 @@ input {
     width: 200px;
 }
 
-input:nth-of-type(3) {
-    border: none;
-    background-color: #EAE7DC;
-}
-
 a.guestLogin {
     color: black
 }
-
-
-
-/* Page Header Part */
-header {
-    background-color: var(--bg-content);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 0 25px 0 black;
-    
-}
-
-header img {
-    height: 80px;
-}
-
-header * {
-    display: inline;
-}
-
-header li a {
-    color: black;
-    text-decoration: none;
-}
-
-/* .topNav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-} */
-
-a.webLogo {
-    text-decoration: none;
-    color: black;
-}
-
-.searchBar input:first-of-type{
-    width: 200px;
-    height: 20px;
-    border: 1px solid darkgray;
-    border-radius: 5px;
-}
-
-.searchBtn {
-    border: none;
-    background-color: white;
-}
-
-.dropBtn {
-    border: none;
-    background-color: white;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 10px 15px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: gray;}
 
 /* Page Main Part */
 

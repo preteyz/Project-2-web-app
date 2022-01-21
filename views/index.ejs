@@ -28,52 +28,54 @@
 	<!-- <div class="jc-center">
 		<h1>Login</h1>
 	</div> -->
-
-	<header>
-		<!-- <img id="login-bg" src="/images/fg-logo.png"> -->
-			<nav>
-				<ul>
-					<li><a class="webLogo" href="/posts"><h1>Foodgram</h1></a></li>
-					<li>
-						<div class="searchBar">
-							<input type="text" placeholder="search">
-							<button class="searchBtn"><i class="fas fa-search"></i></button>
-						</div>
-					</li>
-					<li><a href="#">Don't have an account? Join now!</a></li>
-				</ul>
-			</nav>
-	</header>
-
-
-	<div class="jc-center">
-		<div class= "login-form">	
-			<div class="form-group">
-				<h3>Have an account?</h3>
+	<div class="bg-login">
+		<header>
+			<!-- <img id="login-bg" src="/images/fg-logo.png"> -->
+				<nav>
+					<ul>
+						<li><a class="webLogo" href="/posts"><h1>Foodgram</h1></a></li>
+						<li>
+							<div class="searchBar">
+								<input type="text" placeholder="search">
+								<button class="searchBtn"><i class="fas fa-search"></i></button>
+							</div>
+						</li>
+						<li><a href="#">Don't have an account? Join now!</a></li>
+					</ul>
+				</nav>
+		</header>
+	
+	
+		<div class="jc-center">
+			<div class= "login-form">	
+				<div class="form-group">
+					<h3>Have an account?</h3>
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="username" placeholder="username">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="password" placeholder="password">
+				</div>
+				<div class="form-group">
+					<input id="btn" class="form-control" type="submit" value="Login">
+				</div>
+				<p>- Or Sign In With -</p>
+				<div class="form-group">
+					<form action="/auth/google">
+						<input id = "btn" class="form-control" type="submit" value="Google">
+					</form>
+				</div>
+				
+	
+	
+				<div class="form-group">
+					<a class="guestLogin" href="/posts">Login as a guest</a>
+				</div>	
 			</div>
-			<div class="form-group">
-				<input class="form-control" type="text" name="username" placeholder="username">
-			</div>
-			<div class="form-group">
-				<input class="form-control" type="text" name="password" placeholder="password">
-			</div>
-			<div class="form-group">
-				<input id="btn" class="form-control" type="submit" value="Login">
-			</div>
-			<p>- Or Sign In With -</p>
-			<div class="form-group">
-				<form action="/auth/google">
-					<input id = "btn" class="form-control" type="submit" value="Google">
-				</form>
-			</div>
-			
-
-
-			<div class="form-group">
-				<a class="guestLogin" href="/posts">Login as a guest</a>
-			</div>	
 		</div>
 	</div>
+	
 	
 
 
