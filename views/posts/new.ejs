@@ -1,17 +1,27 @@
 <%- include("../partials/header") %>
 <body>
-    <h1>Foodgram</h1>
-
     <main>
         <form id="new-form" action="/posts" method="POST">
             <label>Picture:</label>
-            <input type="text" name="picture" placeholder="Picture url...">
+            <input type="text" name="image" placeholder="Picture url...">
             <label>Caption:</label>
             <input type="text" name="caption" placeholder="Add a caption!">
             <label>Tag:</label>
-            <input type="text" name="cast">
+            <select name="tag">
+                <option value="test">tag</option>
+                <% tags.forEach ( tag => { %>
+                <option value="<%= tag._id %>"><%= tag.name %></option>
+                <% }) %>
+            </select>
+            <label>User:</label>
+            <select name="user">
+                <option value="test">user</option>
+                <% users.forEach ( user => { %>
+                <option value="<%= user._id %>"><%= user.name %></option>
+                <% }) %>
+            </select>
             <input type="submit" value="Save">
-            <input type="submit" value="Cancel">
+            <a href="/posts">Cancel</a>
         </form>
 	</main>
 </body>
