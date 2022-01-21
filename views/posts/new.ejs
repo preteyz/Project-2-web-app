@@ -1,7 +1,5 @@
 <%- include("../partials/header") %>
 <body>
-    <h1>Foodgram</h1>
-
     <main>
         <form id="new-form" action="/posts" method="POST">
             <label>Picture:</label>
@@ -23,7 +21,7 @@
                 <% }) %>
             </select>
             <input type="submit" value="Save">
-            <input type="submit" value="Cancel">
+            <a href="/posts">Cancel</a>
         </form>
 	</main>
 </body>

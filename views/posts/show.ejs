@@ -1,22 +1,22 @@
 <%- include("../partials/header") %>
-
+<!-- edit, delete button (author only can see) need more work -->
+<% if (loginUser) { %>
+	<a href="/posts/<%=post._id%>/edit">Edit Post</a>
+<form action="/posts/<%=post._id%>?_method=DELETE" method="POST">
+	<input type="submit" value="Delete Post">
+</form>
+<%}%>
     <ul>
 		<li>image: <%= post.image %></li>
         <li>caption: <%= post.caption %></li>
 		<li>tag: <%= post.tag.name %></li>
 		<li>author: <% post.user.name %></li>
 	</ul>
-	<!-- edit, delete button (author only can see) need more work -->
-	<% if (loginUser) { %>
-		<a href="/posts/<%=post._id%>/edit">Edit Post</a>
-	<form action="/posts/<%=post._id%>?_method=DELETE" method="POST">
-		<input type="submit" value="Delete Post">
-	</form>
-	<%}%>
 	<h4>Comments</h4>
 	<% if (post.comments.length) { %>
 		<% post.comments.forEach(comment => { %>
 			<p><%= comment.user.name %>: <%= comment.content %></p>
+			<a href="/comments/<%=comment._id%>/edit">Edit Comment</a>
 			<form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
 				<input type="submit" value="Delete Comment" />
 			</form>

@@ -57,8 +57,14 @@ const create = (req, res) => {
 const edit = (req, res) => {
     db.Comment.findById(req.params.id, (err, foundComment) => {
         if (err) return res.send(err)
-        return res.render("comments/edit", {
-            comment : foundComment
+        db.Post.findById(foundComment.post, (err, foundPost) => {
+            if (err) return res.send(err)
+            return res.render("comments/edit", {
+                foundComment : foundComment,
+                post: foundPost,
+                loginUser: req.user
+        })
+        
         })
     })
 }
