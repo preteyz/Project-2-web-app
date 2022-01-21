@@ -1,3 +1,4 @@
+const req = require("express/lib/request");
 const db = require("../models");
 
 // Index
@@ -75,17 +76,41 @@ const create = (req, res) => {
     })
 }
 
-// Edit
 const edit = (req, res) => {
     db.Post.findById(req.params.id, (err, foundPost) => {
         if (err) return res.send(err);
-        return res.render("posts/edit", {
-            post : foundPost
+        db.Tag.find({}, (err, foundTags) => {
+            if (err) return res.send(err);
+            res.render("posts/edit", {
+                post : foundPost,
+                tags : foundTags,
+                loginUser : req.user
+            })
         })
     })
 }
 
+// Update
+const update = (req, res) => {
+    db.Post.findByIdAndUpdate(
+        req.params.id,
+        {
+            $set: {
+                image: req.body.image,
+                caption:req.body.caption,
+                tag:req.body.tag
+            }
+        }, 
+        { new : true },
+        (err, updatedPost) => {
+            if (err) return res.send(err)
+            return res.redirect(`/posts/${updatedPost._id}`)
+        }
+    )
+}
+
 // Delete
+
 const destroy = (req, res) => {
     db.Post.findByIdAndDelete(req.params.id, (err, deletedPost) => {
         console.log(deletedPost);
@@ -103,11 +128,13 @@ const destroy = (req, res) => {
     })
 }
 
+
 module.exports = {
     index,
     show,
     newPost,
     create,
     edit,
+    update,
     destroy,
 }

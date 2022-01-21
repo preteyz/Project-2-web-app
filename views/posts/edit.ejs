@@ -1,12 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%- include("../partials/header") %>
 <body>
-    Edit Post Page
+    <h3>Edit Post</h3>
+    <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
+        <label for="image">Picture</label>
+		<input type="text" name="image" value="<%= post.image %>" />
+        <label for="caption">Caption</label>
+        <input type="text" name="caption" value="<%= post.caption %>" />
+        <label for="tag">Tag</label>
+        <label>Tag:</label>
+            <select name="tag">
+                <option value="test"><%=post.tag.name%></option>
+                <% tags.forEach ( tag => { %>
+                <option value="<%= tag._id %>"><%= tag.name %></option>
+                <% }) %>
+            </select>
+		<input type="submit" value="Update" />
+	</form>
+
+    <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete Account" />
+    </form>
 </body>
 </html>
