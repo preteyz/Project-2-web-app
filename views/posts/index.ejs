@@ -1,7 +1,7 @@
 <%- include("../partials/header") %>
 <body>
 
-    <h3>All Posts</h3>
+    <!-- <h3>All Posts</h3>
     <% if (!posts.length) { %>
         <p>No posts yet</p>
     <% } else { %>
@@ -14,15 +14,17 @@
 			</form>
     </ul>
         <% }); %>
-    <% } %>
+    <% } %> -->
 
 
     <div class="flex-container">
         <nav class="tagNav">
             <ul style="list-style: none;">
-                <li><a href="#">#TagName1</a></li>
-                <li><a href="#">#TagName2</a></li>
-                <li><a href="#">#TagName3</a></li>
+                <% tags.forEach(tag => {%>
+                    <li>
+                        <a href="tags/<%=tag._id%>"><%=tag.name%></a>
+                    </li>
+                    <%})%>
             </ul>
         </nav>
         <main class="posts">
@@ -41,6 +43,7 @@
 <ul>
     <li><a href="/users">All Users ( /users )</a></li>
     <li><a href="/posts/new">new post ( /new )</a></li>
+    <li><a href="/tags">All Tags / new tag</a></li>
 </ul>
 
 <%- include("../partials/footer") %>

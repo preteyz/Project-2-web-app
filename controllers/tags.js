@@ -1,5 +1,4 @@
 const db = require("../models");
-const { rawListeners } = require("../models/User");
 
 const index = (req, res) => {
     db.Tag.find({}, (err, foundTags) => {
@@ -15,20 +14,26 @@ const show = (req, res) => {
 		.populate("posts")
 		.exec((err, foundTag) => {
 			if (err) return res.send(err);
-			return res.render("hashtags/show", { 
-                tag: foundTag
-            });
+            db.Tag.find({}, (err, foundTags) => {
+                if (err) return res.send(err)
+                return res.render("hashtags/show", { 
+                    foundtag: foundTag,
+                    tags: foundTags,
+                    loginUser: req.user
+                });
+            })
+			
 		})
 };
 
 const newTag = (req, res) => {
-    res.render("tags/new")
+    res.render("hashtags/new")
 };
 
 const create = (req, res) => {
     db.Tag.create(req.body, (err, createdTag) => {
         if (err) res.send(err)
-        res.redirect(`/posts`)
+        res.redirect(`/tags`)
     })
 }
 
@@ -57,6 +62,18 @@ const update = (req, res) => {
     )
 }
 
+const destroy = (req, res) => {
+    db.Tag.findByIdAndDelete(req.params.id, (err, deletedTag) => {
+        console.log(deletedTag);
+        if (err) return res.sed(err);
+        db.Post.deleteMany( {post : deletedTag._id}, (err, deletedPosts) => {
+            console.log(deletedPosts, "deleted posts")
+            if (err) return res.send(err);
+            res.redirect("/tags");
+        })
+    })
+}
+
 module.exports = {
     index,
     show,
@@ -64,4 +81,5 @@ module.exports = {
     create,
     update,
     edit,
+    destroy
 }
