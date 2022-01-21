@@ -3,16 +3,84 @@ body{
     --bg-content: #8E8D8A;
     --bg-generic: #EAE7DC;
     background-color: black;
+    font-size: 16px;
+    font-family: "Lato", Arial, sans-serif;
+    line-height: 1.8;
+    font-weight: normal;
+    color: white;
+    background-image: url(/images/login-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Generic CSS */
+
+/* container{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+} */
+
+.jc-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
 }
 
+/* .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;    
+    margin-left: -15px;
+} */
+
+
+
 /*Login index styling  */
+
+.btn {
+    color: black;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    height: 50px;
+    width: 80%;
+    color: gray;   
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, .6);
+    border-radius: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: content-box;
+}
+
 .login-form {   
+    margin-top: 10%;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+
+.user-hud{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.login-form {   
+    width: 40%;
     border-radius: 25px;
     border: 2px solid var(--bg-generic);
+    text-align: center;
+    padding: 2rem;
 }
 
 a.oauth{
@@ -40,9 +108,7 @@ a.guestLogin {
     color: black
 }
 
-body{
-    background-color: var(--bg-generic);
-}
+
 
 /* Page Header Part */
 .topNav {
