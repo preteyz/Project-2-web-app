@@ -2,8 +2,9 @@
 body{
     --bg-content: #8E8D8A;
     --bg-generic: #EAE7DC;
+    --active-elem: #E98074;
     background-color: black;
-    font-size: 16px;
+    font-size: 20px;
     font-family: "Lato", Arial, sans-serif;
     line-height: 1.8;
     font-weight: normal;
@@ -25,8 +26,18 @@ body{
 
 /*Login index styling  */
 
-.btn {
-    color: black;
+#btn {
+    background-color: var(--active-elem);
+}
+
+input {
+    font-size: 20px;
+    color: white;
+
+}
+
+::placeholder {
+    font-size: 20px;
 }
 
 .form-group {
