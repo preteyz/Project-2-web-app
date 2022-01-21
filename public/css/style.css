@@ -2,15 +2,26 @@
 body{
     --bg-content: #8E8D8A;
     --bg-generic: #EAE7DC;
-    background-color: black;
-    font-size: 16px;
+    --active-elem: #E98074;
+    --passive-elem: #E85A4F;
+    font-size: 20px;
     font-family: "Lato", Arial, sans-serif;
     line-height: 1.8;
     font-weight: normal;
     color: white;
+    
+}
+
+.bg-login {
+    position:absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     background-image: url(/images/login-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 /* Generic CSS */
@@ -20,92 +31,34 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
+    height: 100%;
 
 }
 
-/*Login index styling  */
+/* Nav bar Styling */
 
-.btn {
-    color: black;
+.guest-login {
+    float: right;
+    color: white;
 }
-
-.form-group {
-    position: relative;
-    margin-bottom: 1rem;
-}
-
-.form-control {
-    height: 50px;
-    width: 80%;
-    color: gray;   
-    border: 1px solid transparent;
-    background: rgba(255, 255, 255, .6);
-    border-radius: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: content-box;
-}
-
-.login-form {   
-    margin-top: 10%;
-    background: rgba(255, 255, 255, 0.4);
-}
-
-
-.user-hud{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.login-form {   
-    width: 40%;
-    border-radius: 25px;
-    border: 2px solid var(--bg-generic);
-    text-align: center;
-    padding: 2rem;
-}
-
-a.oauth{
-    text-decoration: none;
-    text-align: center;
-    color: black;
-    background-color: #EAE7DC;
-    padding: 5px;
-    width: 200px;
-}
-
-input {
-    display: block;
-    margin: 5px auto;
-    padding: 5px;
-    width: 200px;
-}
-
-input:nth-of-type(3) {
-    border: none;
-    background-color: #EAE7DC;
-}
-
-a.guestLogin {
-    color: black
-}
-
-
 
 /* Page Header Part */
+
+li.a{
+    color: white;
+}
+
 header {
-    background-color: var(--bg-content);
+    background-color: black;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 50px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 0 25px 0 black;
-    
 }
 
 header img {
@@ -127,11 +80,6 @@ header li a {
     justify-content: space-between;
     align-items: baseline;
 } */
-
-a.webLogo {
-    text-decoration: none;
-    color: black;
-}
 
 .searchBar input:first-of-type{
     width: 200px;
@@ -175,6 +123,88 @@ a.webLogo {
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: gray;}
+
+
+.webLogo {
+    text-decoration: none;
+    color: white;
+}
+
+/*Login index styling  */
+
+#btn {
+    background-color: var(--active-elem);
+}
+
+#btn:hover {
+    border: 1px solid var(--active-elem);
+    background-color: var(--passive-elem);
+    color: white;
+}
+
+input {
+    font-size: 20px;
+    color: white;
+
+}
+
+::placeholder {
+    font-size: 20px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    height: 50px;
+    width: 80%;
+    color: gray;   
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, .6);
+    border-radius: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: content-box;
+}
+
+.login-form {   
+    margin-top: 10%;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+
+.user-hud{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form {   
+    width: 40%;
+    border-radius: 25px;
+    border: 2px solid var(--bg-generic);
+    text-align: center;
+    margin: 6rem;
+}
+
+a.oauth{
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    background-color: #EAE7DC;
+    padding: 5px;
+    width: 200px;
+}
+
+input {
+    display: block;
+    margin: 5px auto;
+    padding: 5px;
+    width: 200px;
+}
+
 
 /* Page Main Part */
 
