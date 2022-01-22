@@ -168,6 +168,25 @@ input {
     margin-bottom: 1rem;
 }
 
+#full-width {
+    width: 93%;
+}
+
+#btn-comments {
+    background-color: var(--active-elem);
+    width: 60px;
+    height: 16px;
+    font-size: 14px;
+    padding: 0px;
+    border: 1px solid var(--passive-elem);
+}
+
+#btn-comments:hover {
+    border: 1px solid var(--active-elem);
+    background-color: var(--passive-elem);
+    color: white;
+}
+
 .form-control {
     height: 50px;
     width: 80%;
@@ -300,10 +319,12 @@ a.render-post-grid {
 
 .post-body {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-evenly;
+    align-items: center;
 	margin: 10px;
 }
+
 .post-img > img {
 	width:400px;
     padding: 50px 0 0 0;
@@ -312,11 +333,20 @@ a.render-post-grid {
 .post-desc {
 	color: black;
     padding: 50px 0 0 0;
+    display: flex;
+
 }
 
 .comments {
 	color: black;
     align-items: center;
+    width: 700px;
+    max-width: 100%;
+    margin: auto;
+    padding: 2rem;
+    background-color: var(--bg-generic);
+    border: 2px solid transparent;
+    border-radius: 25px;
 }
 
 .comments input {
