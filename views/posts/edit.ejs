@@ -14,7 +14,7 @@
                 <option value="<%= tag._id %>"><%= tag.name %></option>
                 <% }) %>
             </select>
-		<input type="submit" value="Update" />
+		<input id="btn" class="form-control" type="submit" value="Update" />
 	</form>
 
     <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
