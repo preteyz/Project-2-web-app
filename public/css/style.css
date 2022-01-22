@@ -4,15 +4,19 @@ body{
     --bg-generic: #EAE7DC;
     --active-elem: #E98074;
     --passive-elem: #E85A4F;
+    --header-height: 60px;
+
     font-size: 20px;
+    margin-top: var(--header-height);
     font-family: "Lato", Arial, sans-serif;
     line-height: 1.8;
     font-weight: normal;
-    color: white;
+    color: var(--bg-content);
     
 }
 
 .bg-login {
+    color: white;
     position:absolute;
     left: 0;
     right: 0;
@@ -37,9 +41,16 @@ body{
 
 /* Nav bar Styling */
 
-.guest-login {
-    float: right;
+nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.right-nav {
     color: white;
+    margin-right: 20px;
 }
 
 /* Page Header Part */
@@ -54,10 +65,10 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    height: 60px;
+    height: var(--header-height);
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     box-shadow: 0 0 25px 0 black;
 }
 
@@ -74,18 +85,12 @@ header li a {
     text-decoration: none;
 }
 
-/* .topNav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-} */
-
 .searchBar input:first-of-type{
     width: 200px;
     height: 20px;
     border: 1px solid darkgray;
     border-radius: 5px;
+    display: inline;
 }
 
 .searchBtn {
@@ -212,6 +217,20 @@ input {
     display: flex;
     flex-direction: row;
     text-align: center;
+    position: sticky;
+}
+
+
+ul, li {
+    padding: 0;
+    margin: 10px;
+    text-align: left;
+}
+
+li > a {
+    font-size: 15;
+    text-decoration: none;
+    color:var(--bg-content);
 }
 
 .tagNav {
@@ -220,13 +239,8 @@ input {
     width: 20%;
     height: fit-content;
     background-color: whitesmoke;
-    border-radius: 2px;
+    border-radius: 25px;
     margin-top: 50px;
-}
-
-ul, li {
-    padding: 0;
-    margin: 10px;
 }
 
 main {
@@ -241,9 +255,9 @@ main.posts {
 
 article {
     margin: 5px;
-    height: 400px;
+    height: 500px;
     background-color: whitesmoke;
-    border-radius: 2px;
+    border-radius: 25px;
 }
 article:first-of-type {
     grid-column: 1 / span 2;
