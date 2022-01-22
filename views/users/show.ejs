@@ -1,5 +1,6 @@
 <%- include("../partials/header") %>
 <h3><%= user.name %></h3>
+<img src="http://localhost:4000/<%= user.avatarUrl%>" alt="">
 
 <a href="/users/<%=user._id%>/edit">Edit Profile</a>
     <h3>My posts</h3>

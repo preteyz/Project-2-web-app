@@ -1,3 +1,4 @@
+const req = require("express/lib/request");
 const db = require("../models");
 
 const index = (req, res) => {
@@ -28,11 +29,22 @@ const newUser = (req, res) => {
     res.render("users/new")
 } 
 
-const create = (req, res) => {
-    db.User.create(req.body, (err, createdUser) => {
-        if (err) return res.send(err)
-        return res.redirect("/users")
+const create = async (req, res) => {
+    const user = new db.User({
+        username : req.body.username,
+        bio : req.body.bio,
     })
+    if (req.file) {
+        user.avatarUrl = req.file.path
+    }
+    const createdUser = await user.save();
+
+    try {
+        console.log(createdUser, "created user")
+        return res.redirect("/users")
+    } catch (err) {
+        res.send(err)
+    }
 }
 
 const edit = (req, res) => {
@@ -50,12 +62,15 @@ const update = (req, res) => {
         req.params.id,
         {
             $set: {
-                ...req.body,
+                username: req.body.username,
+                // avatarUrl: req.file.path,
+                bio:req.body.bio
             }
         },
         { new : true },
         (err, updatedUser) => {
             if (err) return res.send(err);
+            console.log(updatedUser, "updated user")
             return res.redirect(`/users/${updatedUser._id}`)
         }
     )
