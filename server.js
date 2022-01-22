@@ -14,7 +14,7 @@ const routes = require("./routes");
 const app = express();
 
 /* ====  Configuration  ==== */
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 // passport
 require("./config/passport");
