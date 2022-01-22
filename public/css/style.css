@@ -335,16 +335,23 @@ a.render-post-grid {
 	margin: 10px;
 }
 
+.post-img {
+    
+    height: 400px;
+    overflow: hidden;
+    margin: 1rem;
+}
+
 .post-img > img {
-	width:400px;
-    padding: 50px 0 0 0;
 
 }
-.post-desc {
-	color: black;
-    padding: 50px 0 0 0;
-    display: flex;
 
+.post-desc {    
+	color: black;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--header-height);
 }
 
 .comments {

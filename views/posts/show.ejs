@@ -2,11 +2,12 @@
 
 <main class="posts-show">
 <div class="post-body">
-	<div class= "post-img">
-		<img src="http://localhost:4000/<%= post.image%>" alt="<%= post.caption %>">
-	</div>
+	
 
-	<div class="post-desc">
+	<div class="post-desc comments">
+		<div class= "post-img">
+			<img src="http://localhost:4000/<%= post.image%>" alt="<%= post.caption %>">
+		</div>
 		<ul style="list-style: none;">
 			<li>Caption: <%= post.caption %></li>
 			<li>#Tag: <%= post.tag.name %></li>
