@@ -24,7 +24,7 @@ const show = (req, res) => {
             })
 			
 		})
-};
+}
 
 const newTag = (req, res) => {
     res.render("hashtags/new")

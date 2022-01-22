@@ -1,0 +1,19 @@
+<%- include("../partials/header") %>
+<body>
+    <h3><%=post.name%></h3>
+    <div class="flex-container">
+        <nav class="tag-nav">
+            
+        </nav>    
+        <main class="posts-index">
+        <% foundtag.posts.forEach(post => { %>
+            <a class="render-post-grid" href="/tags/<%=tag._id%>posts/<%=post._id%>">
+                <div class="render-post-img" style="background-image:url('/<%= post.image %>')";>
+                <div class="overlay"><%=post.caption%></div>
+                </div>
+            </a>
+        <% }); %>
+        </main>
+    </div>
+</body>
+</html>

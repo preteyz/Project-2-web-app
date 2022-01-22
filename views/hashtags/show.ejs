@@ -15,7 +15,7 @@
         </nav>    
         <main class="posts-index">
         <% foundtag.posts.forEach(post => { %>
-            <a class="render-post-grid" href="posts/<%=post._id%>">
+            <a class="render-post-grid" href="/posts/<%=post._id%>">
                 <div class="render-post-img" style="background-image:url('/<%= post.image %>')";>
                 <div class="overlay"><%=post.caption%></div>
                 </div>
