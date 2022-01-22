@@ -19,11 +19,14 @@
 	<h4>Comments</h4>
     <% if (post.comments.length) { %>
         <% post.comments.forEach(comment => { %>
-            <span><%= comment.user.name %>: <%= comment.content %></span>
-            <a href="/comments/<%=comment._id%>/edit">Edit</a>
-            <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                <input class="delete-comment-btn" type="submit" value="Delete" />
-            </form>
+            <p><%= comment.user.name %>: <%= comment.content %></p>
+			<% if (loginUser && loginUser_id === comment.user._id) { %>
+				<a href="/comments/<%=comment._id%>/edit">Edit</a>
+				<form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
+					<input class="delete-comment-btn" type="submit" value="Delete" />
+				</form>
+			<% }%>
+            
         <% }); %>
     <% } %>
 
@@ -52,7 +55,7 @@
 </div>
 
     <% if (loginUser) { %>
-		<% if ( `${post.user._id}` === `${loginUser._id}` ) { %>
+		<% if ( `${post.user._id}` === `${loginUser._id}`) { %>
 			<a href="/posts/<%=post._id%>/edit">Edit Post</a>
 			<form action="/posts/<%=post._id%>?_method=DELETE" method="POST">
 				<input type="submit" value="Delete Post">
