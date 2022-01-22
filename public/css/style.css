@@ -41,7 +41,7 @@ body{
 
 /* Nav bar Styling */
 
-nav {
+.top-nav {
     display: flex;
     width: 100%;
     align-items: center;
@@ -96,11 +96,16 @@ header li a {
 .searchBtn {
     border: none;
     background-color: white;
+    border-radius: 50px;
+    font-size: 16px;
+    padding: 3px;
 }
 
 .dropBtn {
     border: none;
     background-color: white;
+    border-radius: 3px;
+    font-size: 16px;
 }
 
 .dropdown {
@@ -111,9 +116,10 @@ header li a {
 .dropdown-content {
     display: none;
     position: absolute;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
     z-index: 1;
+    background-color: whitesmoke;
 }
 
 .dropdown-content a {
@@ -217,7 +223,9 @@ input {
     display: flex;
     flex-direction: row;
     text-align: center;
-    position: sticky;
+    justify-content: center;
+    margin: auto auto;
+    /* position: sticky; */
 }
 
 
@@ -233,10 +241,11 @@ li > a {
     color:var(--bg-content);
 }
 
-.tagNav {
+.tag-nav {
     margin: 10px;
     padding: 20px 10px;
     width: 20%;
+    max-width: 250px;
     height: fit-content;
     background-color: whitesmoke;
     border-radius: 25px;
@@ -245,20 +254,123 @@ li > a {
 
 main {
     margin: 10px;
+    margin-top: 40px;
 }
 
-main.posts {
+main.posts-index {
+    width: 60%;
     display: grid;
-    grid-template-columns: auto auto;
-    width: 100%;
+    grid-template-columns: 50% 50%;
 }
 
-article {
-    margin: 5px;
-    height: 500px;
-    background-color: whitesmoke;
-    border-radius: 25px;
+.render-post-grid {
+    margin: 10px;
+    height: 400px;
+    /* background-color: whitesmoke; */    
 }
-article:first-of-type {
+.render-post-grid:first-of-type {
     grid-column: 1 / span 2;
+}
+
+.render-post-img {
+    background-size: cover;
+    height: 400px;
+    border-radius: 5px;
+}
+
+a.render-post-grid {
+    color: black;
+    text-decoration: none;
+}
+
+.overlay {
+
+}
+
+.render-post-img:hover .overlay
+
+/* Show Post Page*/
+
+.post-show main{
+	max-width: 800px;
+	margin: auto auto;
+	display: flex;
+	flex-direction: column; 
+}
+
+.post-body {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	margin: 10px;
+}
+.post-img > img {
+	width:400px;
+    padding: 50px 0 0 0;
+
+}
+.post-desc {
+	color: black;
+    padding: 50px 0 0 0;
+}
+
+.comments {
+	color: black;
+    align-items: center;
+}
+
+.comments input {
+	color: black;
+    margin: 0px;
+}
+
+.deleted-comment-btn {
+	width: 100px;
+	size: 10px;
+}
+
+/* New Post Page */
+
+main.new-post {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: auto auto;
+    margin-top: 50px;
+}
+
+label {
+    margin-right: 30px;
+    text-align: left;
+}
+
+.form-group-post > input, textarea {
+    width: 300px;
+    border: 1px solid black;
+    margin-right: 0;
+}
+
+textarea{
+    height: 200px;
+}
+
+
+a.submit-btn {
+    text-decoration: none;
+    
+}
+
+.form-group-post {
+    margin: 20px;
+}
+
+/* My Page */
+.my-page-left {
+    margin: 20px;
+    text-align: right;
+}
+
+.my-page-left > a {
+    text-decoration: none;
+    color: black;
 }
