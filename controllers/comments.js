@@ -26,7 +26,8 @@ const show = (req, res) => {
         .exec((err, foundComment) => {
             if (err) res.send(err);
             return res.render("comments/show", { 
-                comment : foundComment 
+                comment : foundComment,
+                loginUser: req.user
             })
         })
 }
