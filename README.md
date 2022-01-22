@@ -1,5 +1,7 @@
 # Project-2-web-app
 
+https://project2-foodgram.herokuapp.com/
+
 # MVP Scope: Foodgram
 
 Foodgram, an app to share and celebrate unique food recipes with the global cooking community!
@@ -34,10 +36,10 @@ Icebox Features:
 
 
 ### User Flow
-![User flow ]("../../public/src/User%20Flow.drawio.png)
+![User flow ]("../../public/src/User%20Flow.drawio.png")
 
 ### Wireframe
-![Wireframe ]("../../public/src/User%20Flow.drawio.png")
+![Wireframe ]("../..public/src/project-two-wireframe.png")
 
 ### ERD
-![ERD  ]("/../public/src/ERD.drawio.png")
+![ERD  ]("../..public/src/ERD.drawio.png")
