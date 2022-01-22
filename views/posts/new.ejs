@@ -1,11 +1,11 @@
 <%- include("../partials/header") %>
 <body>
     <main>
-        <form id="new-form" action="/posts" method="POST">
-            <label>Picture:</label>
-            <input type="text" name="image" placeholder="Picture url...">
+        <form id="new-form" action="/posts" method="POST" enctype="multipart/form-data">
+            <label>Image:</label>
+            <input type="file" name="image" placeholder="Choose a file">
             <label>Caption:</label>
-            <input type="text" name="caption" placeholder="Add a caption!">
+            <textarea type="text" name="caption" placeholder="Add a caption!"><%=post.caption%></textarea>
             <label>Tag:</label>
             <select name="tag">
                 <option value="test">tag</option>
@@ -23,6 +23,6 @@
             <input type="submit" value="Save">
             <a href="/posts">Cancel</a>
         </form>
-	</main>
+    </main>
 </body>
 </html>
