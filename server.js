@@ -68,6 +68,6 @@ app.use("/", routes.oauth);
 app.use("/", routes.tags);
 
 /* ====  Server Listener  ==== */
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 4000, () => {
 	console.log(`Project2 app is live at http://localhost:${PORT}`);
 });
