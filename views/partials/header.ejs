@@ -17,8 +17,8 @@
 <title>Project two</title>
 </head>
 <body>
-    <header class="topNav">   
-        <nav>
+    <header>   
+        <nav class="top-nav">
             <ul>
                 <li><a class="webLogo" href="/posts"><h1>Foodgram</h1></a></li>
                 <li><div class="searchBar">
@@ -32,7 +32,7 @@
                         <div class="dropdown">
                             <button class="dropBtn">
                                 <i class="fas fa-user-circle" style="font-size:20px;margin:3px;"></i>
-                                <%= loginUser.name %>
+                                Hi, <%= loginUser.name %>
                             </button>
                             <div class="dropdown-content">
                                 <a href="/users/<%= loginUser._id %>">My Page</a>
@@ -44,7 +44,7 @@
                         <% } else { %>
                             <i class="fas fa-user-circle" style="font-size:20px;margin:3px;"></i>
                             Hi, Guest!
-                            <a href="/auth/google">Login</a>
+                            <a href="/" style="color:white">Login</a>
                         <% } %> 
                     </div>
                 </li>
