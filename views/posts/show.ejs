@@ -21,7 +21,7 @@
     <% if (post.comments.length) { %>
         <% post.comments.forEach(comment => { %>
             <p><span><%= comment.user.name %>: <%= comment.content %></span></p>
-			<% if (loginUser) { %>
+			<% if (loginUser && loginUser._id === comment.user._id) { %>
 			<div class="btn-container">
 				<form action="/comments/<%=comment._id%>/edit">
 					<input id="btn-comments" class="btn-size form-control delete-comment-btn" type="submit" value="Edit" />
@@ -31,7 +31,6 @@
 				</form>
 			</div>	
 			<%}%>
-			
         <% }); %>
     <% } %>
 
@@ -63,7 +62,7 @@
 </div>
 
     <% if (loginUser) { %>
-		<% if ( `${post.user._id}` === `${loginUser._id}` ) { %>
+		<% if ( `${post.user._id}` === `${loginUser._id}`) { %>
 			<a href="/posts/<%=post._id%>/edit">Edit Post</a>
 			<form action="/posts/<%=post._id%>?_method=DELETE" method="POST">
 				<input type="submit" value="Delete Post">
