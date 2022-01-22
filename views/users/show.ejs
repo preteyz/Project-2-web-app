@@ -1,17 +1,24 @@
 <%- include("../partials/header") %>
-<h3><%= user.name %></h3>
-<img src="http://localhost:4000/<%= user.avatarUrl%>" alt="">
 
-<a href="/users/<%=user._id%>/edit">Edit Profile</a>
-    <h3>My posts</h3>
-    <ul>
+<div class="flex-container">
+    <nav class="my-page-left">
+        <!-- <img src="/<%= user.avatarUrl%>" alt="" width="50px"; height="50px";> -->
+        <h3><%= user.name %></h3>
+        <a href="/users/<%=user._id%>/edit">Edit Profile</a>
+        <h3>My posts</h3>
+        <a href="/posts/new">Add a Post</a> 
+    </nav>
+
+    <main class="posts-index">
         <% user.posts.forEach(post => { %>
-        <li>
-            <a href="/posts/<%=post._id%>"><%= post.caption %></a>
-            <img src="http://localhost:4000/<%= post.image %>" alt="<%= post.caption %>"> 
-        </li>
-        <%})%>
-    </ul>
+            <a class="render-post-grid" href="posts/<%=post._id%>">
+                <div class="render-post-img" style="background-image: url('/<%= post.image %>');">
+                <div class="overlay"><%=post.caption%></div>
+                </div>
+            </a>
+        <% }); %>
+    </main>
+</div>
 
 </body>
 </html>

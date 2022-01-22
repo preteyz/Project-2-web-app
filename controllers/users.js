@@ -71,6 +71,9 @@ const update = (req, res) => {
         (err, updatedUser) => {
             if (err) return res.send(err);
             console.log(updatedUser, "updated user")
+            if (req.file) {
+                updatedUser.avatarUrl = req.file.path
+            }
             return res.redirect(`/users/${updatedUser._id}`)
         }
     )

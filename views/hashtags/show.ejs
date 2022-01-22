@@ -2,25 +2,24 @@
 <body>
     <!-- <h3><%=foundtag.name%></h3> -->
     <div class="flex-container">
-        <nav class="tagNav">
+        <nav class="tag-nav">
             <ul style="list-style: none;">
                 <% tags.forEach(tag => {%>
-                    
                     <%if (`${tag._id}` === `${foundtag._id}`) {%>
                         <li><a href="/tags/<%=tag._id%>"><strong><%=tag.name%></strong></a></li></strong>
                     <%} else {%>
                         <li><a href="/tags/<%=tag._id%>"><%=tag.name%></a></li>
                     <%}%>
-
                 <%})%>
             </ul>
-        </nav>
+        </nav>    
         <main class="posts">
         <% foundtag.posts.forEach(post => { %>
-            <article>
-                <a href="/posts/<%=post._id%>"><%= post.caption %></a>
-                <img src="http://localhost:4000/<%= post.image %>" alt="<%= post.caption %>"> 
-            </article>
+            <a class="render-post-grid" href="posts/<%=post._id%>">
+                <div class="render-post-img" style="background-image:url('/<%= post.image %>')";>
+                <div class="overlay"><%=post.caption%></div>
+                </div>
+            </a>
         <% }); %>
         </main>
     </div>

@@ -78,7 +78,7 @@ const create = async (req, res) => {
             console.log(foundTag, "found tag")
             foundTag.posts.push(createdPost)
             foundTag.save();
-            res.redirect(`/posts`)
+            res.redirect(`/users/${foundUser._id}`)
             })
         })
 }

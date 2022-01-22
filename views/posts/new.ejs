@@ -1,26 +1,40 @@
 <%- include("../partials/header") %>
 <body>
-    <main>
+    <main class="new-post">
+        <div class="left-side">
+            <h3>New Post</h3>
+        </div>
+
         <form id="new-form" action="/posts" method="POST" enctype="multipart/form-data">
-            <label>Image:</label>
-            <input type="file" name="image" placeholder="Choose a file">
-            <label>Caption:</label>
-            <textarea type="text" name="caption" placeholder="Add a caption!"><%=post.caption%></textarea>
-            <label>Tag:</label>
-            <select name="tag">
-                <option value="test">tag</option>
-                <% tags.forEach ( tag => { %>
-                <option value="<%= tag._id %>"><%= tag.name %></option>
-                <% }) %>
-            </select>
-            <label>User:</label>
-            <select name="user">
-                <option value="test">user</option>
+            <div class="form-group-post">
+                <label>Image</label>
+                <input type="file" name="image" placeholder="Choose a file">
+            </div>
+            <div class="form-group-post">
+                <label>Caption</label>
+                <textarea type="text" name="caption" placeholder="Add a caption!"><%=post.caption%></textarea>
+            </div>
+            <div class="form-group-post">
+                <label>Tag Select</label>
+                <select name="tag">
+                    <option value="test">tag</option>
+                    <% tags.forEach ( tag => { %>
+                    <option value="<%= tag._id %>"><%= tag.name %></option>
+                    <% }) %>
+                </select>
+                <span>New tag? <a href="">Add Tag</a></span>
+            </div>
+            <div class="form-group-post">
+                <label>Author</label>
+                <select name="user">
                 <% users.forEach ( user => { %>
-                <option value="<%= user._id %>"><%= user.name %></option>
+                    <% if ( `${user._id}` === `${loginUser._id}` ) { %>
+                        <option value="<%= user._id %>"><%= user.name %></option>
+                    <%}%>
                 <% }) %>
-            </select>
-            <input type="submit" value="Save">
+                </select>
+            </div>            
+            <input class="submit-btn" type="submit" value="Save">
             <a href="/posts">Cancel</a>
         </form>
     </main>
