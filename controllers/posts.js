@@ -30,7 +30,7 @@ const show = (req, res) => {
                     res.render("posts/show", {
                         post: foundPost,
                         tags: foundTags,
-                        loginUser: req.user
+                        loginUser: req.user,
                     }
                 )
             })
@@ -39,6 +39,7 @@ const show = (req, res) => {
 
 // New post
 const newPost = (req, res) => {
+    const post = new db.Post();
     db.User.find({}, (err, foundUsers) => {
         if (err) return res.send(err);
         db.Tag.find({}, (err, foundTags) => {
@@ -46,34 +47,40 @@ const newPost = (req, res) => {
             res.render("posts/new", {
                 users : foundUsers,
                 tags : foundTags,
-                loginUser : req.user
+                loginUser : req.user,
+                post: post
             })
         })
     })
 };
 
 // Create
-const create = (req, res) => {
-    db.Post.create(req.body, (err, createdPost) => {
-        if (err) res.send(err)
-        console.log(createdPost, "created post")
-        db.User.findById(createdPost.user)
-            .exec((err, foundUser) => {
-                if (err) return res.send(err)
-                console.log(foundUser, "found user")
-                foundUser.posts.push(createdPost)
-                foundUser.save();
-                db.Tag.findById(createdPost.tag)
-                .exec((err, foundTag) => {
-                    if (err) return res.send(err)
-                    console.log(foundTag, "found tag")
-                    foundTag.posts.push(createdPost)
-                    foundTag.save();
-                    res.redirect(`/posts`)
-                })
-                
-            })
+const create = async (req, res) => {
+    const post = new db.Post({
+        caption: req.body.caption,
+        tag: req.body.tag,
+        user: req.body.user
     })
+    if (req.file) {
+        post.image = req.file.path
+    }
+    const createdPost = await post.save();
+    console.log(createdPost, "created post")
+    db.User.findById(createdPost.user)
+        .exec((err, foundUser) => {
+            if (err) return res.send(err)
+            console.log(foundUser, "found user")
+            foundUser.posts.push(createdPost)
+        foundUser.save();
+        db.Tag.findById(createdPost.tag)
+            .exec((err, foundTag) => {
+            if (err) return res.send(err)
+            console.log(foundTag, "found tag")
+            foundTag.posts.push(createdPost)
+            foundTag.save();
+            res.redirect(`/posts`)
+            })
+        })
 }
 
 const edit = (req, res) => {
@@ -96,7 +103,7 @@ const update = (req, res) => {
         req.params.id,
         {
             $set: {
-                image: req.body.image,
+                // image: req.file.path,
                 caption:req.body.caption,
                 tag:req.body.tag
             }
