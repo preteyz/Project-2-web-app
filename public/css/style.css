@@ -39,6 +39,10 @@ body{
 
 }
 
+.hidden {
+    display: none;
+}
+
 /* Nav bar Styling */
 
 .top-nav {
@@ -176,15 +180,21 @@ input {
     background-color: var(--active-elem);
     width: 60px;
     height: 16px;
-    font-size: 14px;
+    font-size: 14px;    
     padding: 0px;
     border: 1px solid var(--passive-elem);
+    margin-right: 20px;
 }
 
 #btn-comments:hover {
     border: 1px solid var(--active-elem);
     background-color: var(--passive-elem);
     color: white;
+}
+
+.btn-container {
+    display:flex;
+    flex-direction: row;
 }
 
 .form-control {
