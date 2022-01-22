@@ -36,10 +36,10 @@ Icebox Features:
 
 
 ### User Flow
-![User flow ]("../../public/src/User%20Flow.drawio.png")
+![User flow ]("/../public/src/User%20Flow.drawio.png")
 
 ### Wireframe
-![Wireframe ]("../..public/src/project-two-wireframe.png")
+![Wireframe ]("/../public/src/User%20Flow.drawio.png")
 
 ### ERD
-![ERD  ]("../..public/src/ERD.drawio.png")
+![ERD  ]("/..public/src/ERD.drawio.png")
