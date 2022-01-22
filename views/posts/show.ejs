@@ -1,40 +1,39 @@
 <%- include("../partials/header") %>
-<!-- edit, delete button (author only can see) need more work -->
 <% if (loginUser) { %>
-	<a href="/posts/<%=post._id%>/edit">Edit Post</a>
+    <a href="/posts/<%=post._id%>/edit">Edit Post</a>
 <form action="/posts/<%=post._id%>?_method=DELETE" method="POST">
-	<input type="submit" value="Delete Post">
+    <input type="submit" value="Delete Post">
 </form>
 <%}%>
     <ul>
-		<li>image: <%= post.image %></li>
+        <img src="http://localhost:4000/<%= post.image%>"> alt="<%= post.caption %>">
         <li>caption: <%= post.caption %></li>
-		<li>tag: <%= post.tag.name %></li>
-		<li>author: <% post.user.name %></li>
-	</ul>
-	<h4>Comments</h4>
-	<% if (post.comments.length) { %>
-		<% post.comments.forEach(comment => { %>
-			<p><%= comment.user.name %>: <%= comment.content %></p>
-			<a href="/comments/<%=comment._id%>/edit">Edit Comment</a>
-			<form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
-				<input type="submit" value="Delete Comment" />
-			</form>
-		<% }); %>
-	<% } %>
-	<% if (loginUser) { %>
-	<form action="/posts/<%=post._id%>/comments" method="POST">
-		<label><%=loginUser.name%>:</label>
-		<input type="text" name="content" placeholder="Leave a comment">
-		<select name="post">
-			<option value="<%=post._id%>"></option>
-			</select>
-			<select name="user" id="">
-				<option value="<%=loginUser._id%>"><%=loginUser.name%></option>
-				</select>
-		<input type="submit" value="Post">
-	</form>
-	<%}%>
+        <li>tag: <%= post.tag.name %></li>
+        <li>author: <% post.user.name %></li>
+    </ul>
+    <h4>Comments</h4>
+    <% if (post.comments.length) { %>
+        <% post.comments.forEach(comment => { %>
+            <p><%= comment.user.name %>: <%= comment.content %></p>
+            <a href="/comments/<%=comment._id%>/edit">Edit Comment</a>
+            <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete Comment" />
+            </form>
+        <% }); %>
+    <% } %>
+    <% if (loginUser) { %>
+    <form action="/posts/<%=post._id%>/comments" method="POST">
+        <label><%=loginUser.name%>:</label>
+        <input type="text" name="content" placeholder="Leave a comment">
+        <select name="post">
+            <option value="<%=post._id%>"></option>
+            </select>
+            <select name="user" id="">
+                <option value="<%=loginUser._id%>"><%=loginUser.name%></option>
+                </select>
+        <input type="submit" value="Post">
+    </form>
+    <%}%>
     
 
 </body>

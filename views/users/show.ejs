@@ -7,6 +7,7 @@
         <% user.posts.forEach(post => { %>
         <li>
             <a href="/posts/<%=post._id%>"><%= post.caption %></a>
+            <img src="http://localhost:4000/<%= post.image %>" alt="<%= post.caption %>"> 
         </li>
         <%})%>
     </ul>

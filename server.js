@@ -31,6 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 // serve public files
 app.use(express.static("public"));
+app.use("/uploads", express.static("uploads"));
 // logger
 app.use((req, res, next) => {
 	console.log(req.url, req.method);
