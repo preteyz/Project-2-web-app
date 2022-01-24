@@ -1,24 +1,27 @@
 <%- include("../partials/header") %>
 <body>
     <h3>Edit Post</h3>
+    <div class="edit-page">
     <form action="/posts/<%= post._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
         <label for="image">Image</label>
-		<input type="text" name="image" value="<%= post.image %>" />
+		<input type="file" name="image" value="<%= post.image %>" />
         <label for="caption">Caption</label>
-        <input type="text" name="caption" value="<%= post.caption %>" />
-        <label for="tag">Tag</label>
-        <label>Tag:</label>
-            <select name="tag">
-                <option value="test"><%=post.tag.name%></option>
-                <% tags.forEach ( tag => { %>
-                <option value="<%= tag._id %>"><%= tag.name %></option>
-                <% }) %>
-            </select>
+        <textarea type="text" name="caption"><%= post.caption %> </textarea>
+        <div>
+            <label for="tag">Tag</label>
+                <select name="tag">
+                    <% tags.forEach ( tag => { %>
+                    <option value="<%= tag._id %>"><%= tag.name %></option>
+                    <% }) %>
+                </select>
+        </div>
+        
 		<input id="btn" class="form-control" type="submit" value="Update" />
 	</form>
 
     <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-        <input type="submit" value="Delete Account" />
+        <input type="submit" value="Delete Post" />
     </form>
+</div>
 </body>
 </html>

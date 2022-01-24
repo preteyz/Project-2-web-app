@@ -1,14 +1,35 @@
 <%- include("../partials/header") %>
 
-    <ul>
-		<li>image: <%= post.image %></li>
-        <li>caption: <%= post.caption %></li>
-		<li>tag: <%= post.tag.name %></li>
-		<li>author: <% post.user.name %></li>
-	</ul>
+<main class="posts-show">
+	<div class="post-body">
+		
+	
+		<div class="post-desc comments">
+			<div class= "post-img">
+				<img src="http://localhost:4000/<%= post.image%>" alt="<%= post.caption %>">
+			</div>
+			<ul style="list-style: none;">
+				<li>Caption: <%= post.caption %></li>
+				<li>#Tag: <%= post.tag.name %></li>
+				<li>Author: <%= post.user.name %></li>
+			</ul>
+		</div>
+	</div>
+	
 	<!-- edit, delete button (author only can see) need more work -->
 
-	<h4>Comments</h4>
+	<div class="comments">
+		<% if (post.comments.length) { %>
+			<% post.comments.forEach(comment => { %>
+				<p><span><%= comment.user %>: <%= comment.content %></span></p>
+		
+
+			<% }); %>
+		<% } %>
+	
+
+
+
 	<% if (post.comments.length) { %>
 		<% post.comments.forEach(comment => { %>
 		

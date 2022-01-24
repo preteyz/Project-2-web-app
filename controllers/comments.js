@@ -43,7 +43,7 @@ const create = (req, res) => {
                 console.log(foundPost, "Found Post");
                 foundPost.comments.push(createdComment);
                 foundPost.save();
-                db.User.findById(foundPost.user)
+                db.User.findById(createdComment.user)
                     .exec((err, foundUser) => {
                         if (err) return res.send(err);
                         console.log(foundUser, "Found User");

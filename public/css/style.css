@@ -376,6 +376,19 @@ a.render-post-grid {
 	size: 10px;
 }
 
+.post-control {
+    display: inline;
+    width: 150px;
+	size: 10px;
+    background-color: #EAE7DC;
+    color: black;
+    border: none;
+}
+
+a.post-control {
+    padding: 7px;
+    text-decoration: none;
+}
 /* New Post Page */
 
 main.new-post {
@@ -419,5 +432,16 @@ a.submit-btn {
 
 .my-page-left > a {
     text-decoration: none;
+    color: black;
+}
+
+/* Edit page */
+.edit-page {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.edit-page input {
     color: black;
 }

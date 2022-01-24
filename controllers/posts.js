@@ -24,7 +24,7 @@ const show = (req, res) => {
         .populate("tag")
         .exec((err, foundPost) => {
             if (err) return res.send(err)
-            console.log(foundPost)
+            console.log(foundPost, "found post")
             db.Tag.find({}, (err, foundTags) => {
                 if (err) return res.send(err);
                     res.render("posts/show", {
@@ -59,7 +59,7 @@ const create = async (req, res) => {
     const post = new db.Post({
         caption: req.body.caption,
         tag: req.body.tag,
-        user: req.body.user
+        user: req.user
     })
     if (req.file) {
         post.image = req.file.path
